@@ -1,5 +1,6 @@
 package ru.job4j.calculate; 
 
+
 /*
 * Returns "Hello world" 
 * @param no param
@@ -9,7 +10,6 @@ package ru.job4j.calculate;
 * @since 0.1
 *
 */
-
 
 public class Calculate {
     public static void main(String[] args) {
