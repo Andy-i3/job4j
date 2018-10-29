@@ -2,9 +2,7 @@ package ru.job4j.calculate;
 
 
 /*
-* Returns "Hello world" 
-* @param no param
-* @return "Hello world"
+* Calculate.
 * @author Golubkov Andrey 
 * @version $Id$
 * @since 0.1
@@ -23,4 +21,13 @@ public class Calculate {
 		System.out.println("Hello world");
        
     }
+
+	/**
+* Method echo.
+* @param name Your name.
+* @return Echo plus your name.
+*/
+public String echo(String name) {
+    return "Echo, echo, echo : " + name;
+}
 }
