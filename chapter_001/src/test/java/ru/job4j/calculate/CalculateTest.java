@@ -1,6 +1,5 @@
 package ru.job4j.calculate;
 
-
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -24,5 +23,4 @@ public void whenTakeNameThenTreeEchoPlusName() {
     String result = calc.echo(input);
     assertThat(result, is(expect));
 }
- 
 }
