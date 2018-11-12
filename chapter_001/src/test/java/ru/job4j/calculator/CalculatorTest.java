@@ -15,4 +15,31 @@ public class CalculatorTest {
         double expected = 2D;
         assertThat(result, is(expected));
     }
+
+    @Test
+    public void whensubtract() {
+        Calculator calc = new Calculator();
+        calc.subtract(1D, 1D);
+        double result = calc.getResult();
+        double expected = 0D;
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whendiv() {
+        Calculator calc = new Calculator();
+        calc.div(1D, 1D);
+        double result = calc.getResult();
+        double expected = 1D;
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void multiple() {
+        Calculator calc = new Calculator();
+        calc.multiple(1D, 1D);
+        double result = calc.getResult();
+        double expected = 1D;
+        assertThat(result, is(expected));
+    }
 }
