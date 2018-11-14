@@ -9,27 +9,28 @@ public class ConverterTest {
     @Test
     public void when60RubleToDollarThen1() {
         Converter converter = new Converter();
-        int result = converter.rubleToDollar( 60 );
-        assertThat( result, is( 1 ) );
+        int result = converter.rubleToDollar(60);
+        assertThat(result, is(1));
     }
+
     @Test
     public void when70RubleToEuroThen1() {
         Converter converter = new Converter();
-        int result = converter.rubleToEuro( 70 );
-        assertThat( result, is( 1 ) );
+        int result = converter.rubleToEuro(70);
+        assertThat(result, is(1));
     }
 
     @Test
     public void wheneuroToRuble() {
         Converter converter = new Converter();
-        int result = converter.euroToRuble( 1 );
-        assertThat( result, is( 70 ) );
+        int result = converter.euroToRuble(1);
+        assertThat(result, is(70));
     }
 
     @Test
     public void whendollarToRuble() {
         Converter converter = new Converter();
-        int result = converter.dollarToRuble( 1 );
-        assertThat( result, is( 60 ) );
+        int result = converter.dollarToRuble(1);
+        assertThat(result, is(60));
     }
 }
