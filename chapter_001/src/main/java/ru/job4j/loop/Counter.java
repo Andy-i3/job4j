@@ -4,7 +4,9 @@ public class Counter {
     public int add(int start, int finish) {
         int count = 0;
         for (int i = start; i <= finish; i++) {
-            if ((i % 2) == 0) count = i + count;
+            if ((i % 2) == 0) {
+                count = i + count;
+            }
         }
         return count;
     }
