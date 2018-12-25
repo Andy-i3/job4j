@@ -7,12 +7,12 @@ public class Board {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if ((x + y) % 2 == 0) {
-                    screen.append( "X" );
+                    screen.append("X");
                 } else {
-                    screen.append( " " );
+                    screen.append(" ");
                 }
             }
-            screen.append( ln );
+            screen.append(ln);
         }
         return screen.toString();
     }
