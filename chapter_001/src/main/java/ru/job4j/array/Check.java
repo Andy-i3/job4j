@@ -1,5 +1,12 @@
 package ru.job4j.array;
 
+/*
+ * Check.
+ * @author Golubkov Andrey
+ * @version $Id$
+ * @since 0.1
+ */
+
 public class Check {
     public boolean mono(boolean[] data) {
         boolean result = true;

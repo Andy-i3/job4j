@@ -1,5 +1,12 @@
 package ru.job4j.array;
 
+/*
+ * Turn.
+ * @author Golubkov Andrey
+ * @version $Id$
+ * @since 0.1
+ */
+
 public class Turn {
     public int[] back(int[] array) {
         int buf = 0;
