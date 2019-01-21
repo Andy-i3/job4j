@@ -12,15 +12,14 @@ import java.util.Arrays;
 public class ArrayDuplicate {
     public String[] remove(String[] array) {
         for (int i = 0; i < array.length - 1; i++) {
-            for (int j = i; j < array.length - 2; j++) {
-                if (array[i] == array[j+1]) {
-                    array[j+1] = array[array.length - 1];
+            for (int j = i; j < array.length - 1; j++) {
+                if (array[i] == array[j + 1]) {
+                    array[j + 1] = array[array.length - 1];
                     array = Arrays.copyOf(array, (array.length - 1));
+                    j--;
                 }
-
             }
         }
         return array;
-
     }
 }
