@@ -26,12 +26,12 @@ public class Logic {
 
     public boolean move(Cell source, Cell dest) {
         boolean rst = false;
-        int index = this.findBy(source);
+        int index = this.findBy( source );
         if (index != -1) {
-            Cell[] steps = this.figures[index].way(source, dest);
-            if (this.isFree(steps)) {
+            Cell[] steps = this.figures[index].way( source, dest );
+            if (this.isFree( steps )) {
                 rst = true;
-                this.figures[index] = this.figures[index].copy(dest);
+                this.figures[index] = this.figures[index].copy( dest );
             }
         }
         return rst;
@@ -40,7 +40,7 @@ public class Logic {
     public boolean isFree(Cell... cells) {
         boolean result = cells.length > 0;
         for (Cell cell : cells) {
-            if (this.findBy(cell) != -1) {
+            if (this.findBy( cell ) != -1) {
                 result = false;
                 break;
             }
@@ -58,7 +58,7 @@ public class Logic {
     private int findBy(Cell cell) {
         int rst = -1;
         for (int index = 0; index != this.figures.length; index++) {
-            if (this.figures[index] != null && this.figures[index].position().equals(cell)) {
+            if (this.figures[index] != null && this.figures[index].position().equals( cell )) {
                 rst = index;
                 break;
             }
@@ -69,20 +69,27 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
+        int count1 = 1;
+        int count2 = 1;
         for (int i = 0; i < table.length; i++) {
-            for (int j = 0; j < table.length; j++) {
-                System.out.print(table[i][j]+" ");
+            if (table[2][i] == 1) {
+                count1++;
             }
-            System.out.println("");
-    }
-       return result;
+            if (table[i][2] == 1) {
+                count2++;
+            }
+        }
+        if (count1 > 5 || count2 > 5) {
+            result = true;
+        }
+        return result;
     }
 
     public int[][] convert() {
         int[][] table = new int[this.size][this.size];
         for (int row = 0; row != table.length; row++) {
             for (int cell = 0; cell != table.length; cell++) {
-                int position = this.findBy(new Cell(row, cell));
+                int position = this.findBy( new Cell( row, cell ) );
                 if (position != -1 && this.figures[position].movable()) {
                     table[row][cell] = 1;
                 }
