@@ -69,12 +69,10 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
-        int count1 = 1;
-        int count2 = 1;
-        for (int j = 0; j < table.length; j++) {
-            count1 = 1;
-            count2 = 1;
-            for (int i = 0; i < table.length; i++) {
+        for (int j = 0; j < this.size; j++) {
+            int count1 = 1;
+            int count2 = 1;
+            for (int i = 0; i < this.size; i++) {
                 if (table[j][i] == 1) {
                     count1++;
                 }
@@ -82,7 +80,7 @@ public class Logic {
                     count2++;
                 }
             }
-            if (count1 > 5 || count2 > 5) {
+            if (count1 > this.size || count2 > this.size) {
                 result = true;
                 break;
             }

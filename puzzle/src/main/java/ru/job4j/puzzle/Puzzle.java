@@ -23,7 +23,7 @@ import java.util.Random;
 
 public class Puzzle extends Application {
     private static final String JOB4J = "Пазлы на www.job4j.ru";
-    private final int size = 5;
+    private final int size = 8;
     private final Logic logic = new Logic(size);
 
     private Rectangle buildRectangle(int x, int y, int size) {
@@ -121,7 +121,7 @@ public class Puzzle extends Application {
         this.logic.clean();
         border.setCenter(grid);
         this.generate(true, 6, grid);
-        this.generate(false, 5, grid);
+        this.generate(false, size, grid);
     }
 
     public void generate(boolean block, int total, Group grid) {
