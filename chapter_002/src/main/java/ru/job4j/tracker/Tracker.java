@@ -1,5 +1,4 @@
 package ru.job4j.tracker;
-
 import java.util.Random;
 
 /**
@@ -7,24 +6,13 @@ import java.util.Random;
  * @since 0.1
  */
 public class Tracker {
-
     private static final Random RN = new Random();
-
-    /**
-     * Массив для хранение заявок.
-     */
+    // Массив для хранение заявок.
     private final Item[] items = new Item[100];
-
-    /**
-     * Указатель ячейки для новой заявки.
-     */
+    // Указатель ячейки для новой заявки.
     private int position = 0;
 
-    /**
-     * Метод реализаущий добавление заявки в хранилище
-     *
-     * @param item новая заявка
-     */
+    // Метод реализаущий добавление заявки в хранилище
     public Item add(Item item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
@@ -43,6 +31,13 @@ public class Tracker {
     }
 
     public void replace(String id, Item item) {
+        int i = 0;
+        for (Item E : items) {
+            if (E != null && E.getId().equals(id)) {
+                this.items[i] = item;
+            }
+            i++;
+        }
     }
 
     public Item findById(String id) {
@@ -57,11 +52,8 @@ public class Tracker {
     }
 
     // public delete(String id) {
-
     // Item[findById(id)].remove;
-
     //   }
-
     //  public Item[] findAll() {
 //
     //  }

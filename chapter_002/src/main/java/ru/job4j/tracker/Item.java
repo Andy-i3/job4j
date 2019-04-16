@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import java.util.Objects;
 
+// id (уникальный ключ), name - имя, desc - описание, time - время создания заявки.
+
 public class Item {
     private String id;
     private String name;
