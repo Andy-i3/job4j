@@ -51,12 +51,28 @@ public class Tracker {
         return result;
     }
 
-    // public delete(String id) {
-    // Item[findById(id)].remove;
-    //   }
-    //  public Item[] findAll() {
-//
-    //  }
+    public delete(String id) {
+
+        int i = 0;
+        for (Item E : items) {
+            if (E != null && E.getId().equals(id)) {
+                this.items[i] = null;
+            }
+            i++;
+        }
+
+        for (int j = 1; j < this.items.length - 1; j++) {
+            if (this.items[j].equals(null))
+
+        }
+
+
+    }
+
+    public Item[] findAll() {
+
+
+    }
 
     public Item findByName(String key) {
         Item result = null;
