@@ -30,17 +30,22 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         int i = 0;
+        return =false;
         for (Item E : items) {
             if (E != null && E.getId().equals(id)) {
                 this.items[i] = item;
+                return true
             }
             i++;
         }
+
+
     }
 
     public Item findById(String id) {
+
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
@@ -51,27 +56,30 @@ public class Tracker {
         return result;
     }
 
-    public delete(String id) {
+    public void delete(String id) {
 
-        int i = 0;
+        int pos = 0;
         for (Item E : items) {
             if (E != null && E.getId().equals(id)) {
-                this.items[i] = null;
+                this.items[pos] = null;
             }
-            i++;
+            pos++;
         }
-
-        for (int j = 1; j < this.items.length - 1; j++) {
-            if (this.items[j].equals(null))
-
-        }
-
-
     }
 
+
+
+
     public Item[] findAll() {
-
-
+        int pos = 0;
+        Item[] result = new Item[100];
+        for (Item item : items) {
+            if (item != null) {
+                pos++;
+                result[pos] = item;
+            }
+        }
+        return result;
     }
 
     public Item findByName(String key) {
