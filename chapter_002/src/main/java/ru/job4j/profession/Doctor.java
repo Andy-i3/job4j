@@ -2,7 +2,10 @@ package ru.job4j.profession;
 
 public class Doctor extends Profession {
 
-    public diagnose heal(Pacient pacient) {
+    public class diagnose heal(
+    Pacient pacient)
+
+    {
 
     }
 
