@@ -1,4 +1,6 @@
 package ru.job4j.tracker;
+
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -30,17 +32,24 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         int i = 0;
+        boolean r = false;
         for (Item E : items) {
             if (E != null && E.getId().equals(id)) {
                 this.items[i] = item;
+                item.setId(id);
+                r = true;
+                break;
             }
             i++;
         }
+        return r;
+
     }
 
     public Item findById(String id) {
+
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
@@ -51,21 +60,32 @@ public class Tracker {
         return result;
     }
 
-    // public delete(String id) {
-    // Item[findById(id)].remove;
-    //   }
-    //  public Item[] findAll() {
-//
-    //  }
+    public void delete(String id) {
 
-    public Item findByName(String key) {
-        Item result = null;
-        for (Item item : items) {
-            if (item != null && item.getName().equals(key)) {
-                result = item;
+        for (int i = 0; i < this.position; i++) {
+            if (this.items[i] != null && this.items[i].equals(id)) {
+                System.arraycopy(this.items, i + 1, this.items, i, this.position - i);
+                this.position--;
                 break;
             }
         }
-        return result;
+
+    }
+
+
+    public Item[] findAll() {
+        return Arrays.copyOf(items, position);
+    }
+
+    public Item[] findByName(String key) {
+        Item[] result = new Item[this.position];
+        int pos = 0;
+        for (int i = 0; i < this.position; i++) {
+            if (items[i] != null && items[i].getName().equals(key)) {
+                result[i] = items[i];
+                pos++;
+            }
+        }
+        return Arrays.copyOf(result, pos);
     }
 }
