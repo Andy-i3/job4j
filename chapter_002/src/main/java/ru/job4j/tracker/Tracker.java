@@ -7,6 +7,7 @@ import java.util.Random;
  * @version $Id$
  * @since 0.1
  */
+
 public class Tracker {
     private static final Random RN = new Random();
     // Массив для хранение заявок.
@@ -69,7 +70,6 @@ public class Tracker {
                 break;
             }
         }
-
     }
 
 

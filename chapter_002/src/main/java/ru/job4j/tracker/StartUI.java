@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-
-
 /**
  * @version $Id$
  * @since 0.1
@@ -79,7 +77,7 @@ public class StartUI {
                 ,"4. Find item by Id"
                 ,"5. Find items by name"
                 ,"6. Exit Program"
-                ,"Select:"
+                ,""
         );
 
         System.out.println(s);
@@ -91,7 +89,6 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-       this.showMenu();
-        // new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ConsoleInput(), new Tracker()).init();
     }
 }

@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class Input {
 
+    public String ask(String msg) {
 
-    public String ask(String msg) {}
+        System.out.println( msg );
+        Scanner in = new Scanner( System.in );
+        String rline = in.next();
 
-    System.out.println(msg);
-    Scanner in = new Scanner(System.in);
-    int num = in.nextInt();
-
+        return rline;
+    }
 }
+
