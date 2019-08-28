@@ -98,7 +98,7 @@ public class StartUI {
 
     private void showMenu() {
 
-        String s = String.join("\n"1
+        String s = String.join("\n"
 
                 , "Menu"
                 , " "
