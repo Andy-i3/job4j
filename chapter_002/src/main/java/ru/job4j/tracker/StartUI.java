@@ -9,6 +9,11 @@ public class StartUI {
      * Константа меню для добавления новой заявки.
      */
     private static final String ADD = "0";
+    private static final String SHOW = "1";
+    private static final String EDIT = "2";
+    private static final String DELETE = "3";
+    private static final String FINDBYID = "4";
+    private static final String FINDBYNAME = "5";
 
     /**
      * Константа для выхода из цикла.
@@ -26,7 +31,8 @@ public class StartUI {
 
     /**
      * Конструтор инициализирующий поля.
-     * @param input ввод данных.
+     *
+     * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
     public StartUI(Input input, Tracker tracker) {
@@ -43,10 +49,17 @@ public class StartUI {
             this.showMenu();
             String answer = this.input.ask("Введите пункт меню : ");
             if (ADD.equals(answer)) {
-                //добавление заявки вынесено в отдельный метод.
                 this.createItem();
-//            } else if (...) {
-//             Добавить остальные действия системы по меню.
+            } else if (SHOW.equals(answer)) {
+                this.show();
+            } else if (EDIT.equals(answer)) {
+                this.edit();
+            } else if (DELETE.equals(answer)) {
+                this.delete();
+            } else if (FINDBYID.equals(answer)) {
+                this.findbyid();
+            } else if (FINDBYNAME.equals(answer)) {
+                this.findbyname();
             } else if (EXIT.equals(answer)) {
                 exit = true;
             }
@@ -65,19 +78,38 @@ public class StartUI {
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
 
-    private  void showMenu() {
+    private void show() {
+    }
 
-        String s = String.join("\n"
-                ,"Menu"
-                ," "
-                ,"0. Add new Item"
-                ,"1. Show all items"
-                ,"2. Edit item"
-                ,"3. Delete item"
-                ,"4. Find item by Id"
-                ,"5. Find items by name"
-                ,"6. Exit Program"
-                ,""
+    private void edit() {
+    }
+
+    private void delete() {
+    }
+
+    private void findbyid() {
+
+    }
+
+    private void findbyname() {
+
+    }
+
+
+    private void showMenu() {
+
+        String s = String.join("\n"1
+
+                , "Menu"
+                , " "
+                , "0. Add new Item"
+                , "1. Show all items"
+                , "2. Edit item"
+                , "3. Delete item"
+                , "4. Find item by Id"
+                , "5. Find items by name"
+                , "6. Exit Program"
+                , ""
         );
 
         System.out.println(s);
@@ -86,6 +118,7 @@ public class StartUI {
 
     /**
      * Запускт программы.
+     *
      * @param args
      */
     public static void main(String[] args) {
