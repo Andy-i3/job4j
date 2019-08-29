@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
+
 /**
  * @version $Id$
  * @since 0.1
@@ -76,23 +78,38 @@ public class StartUI {
         Item item = new Item(name, desc);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+        System.out.println("------------ Новая заявка с getName : " + item.getName() + "-----------");
     }
 
     private void show() {
+        System.out.println(Arrays.toString(this.tracker.findAll()));
     }
 
     private void edit() {
+        System.out.println("------------ Редактирование заявки --------------");
+        String id = this.input.ask("Введите ID заявки :");
+        String name = this.input.ask("Введите описание заявки :");
+        this.tracker.replace( id, this.tracker.findById( id ) );
+        System.out.println("------------ Заявка заменена ----------------");
     }
 
     private void delete() {
+        System.out.println("------------ Удаление заявки по ID --------------");
+        String item = this.input.ask("Введите ID заявки :");
+        this.tracker.delete( item );
+        System.out.println("------------ Заявка удалена ----------------");
     }
 
     private void findbyid() {
-
+        System.out.println("------------ Поиск заявки по ID --------------");
+        String item = this.input.ask("Введите ID заявки :");
+        System.out.println("------------ Заявка: " + this.tracker.findById(item) + " -----------");
     }
 
     private void findbyname() {
-
+        System.out.println("------------ Поиск заявки по имени --------------");
+        String item = this.input.ask("Введите имя заявки :");
+        System.out.println("------------ Заявка: " + this.tracker.findByName(item) + " -----------");
     }
 
 

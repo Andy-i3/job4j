@@ -50,7 +50,6 @@ public class Tracker {
     }
 
     public Item findById(String id) {
-
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
@@ -62,7 +61,6 @@ public class Tracker {
     }
 
     public void delete(String id) {
-
         for (int i = 0; i < this.position; i++) {
             if (this.items[i] != null && this.items[i].equals(id)) {
                 System.arraycopy(this.items, i + 1, this.items, i, this.position - i);
