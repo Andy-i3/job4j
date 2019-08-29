@@ -15,8 +15,8 @@ public class ArrayDuplicateTest {
                 "Супер", "Супер", "Супер",
                 "Супер", "Супер", "Мир", "Привет"};
         String[] result = {"Привет", "Мир", "Супер"};
-        ArrayDuplicate Result = new ArrayDuplicate();
-        expectedResult = Result.remove(expectedResult);
+        ArrayDuplicate tresult = new ArrayDuplicate();
+        expectedResult = tresult.remove(expectedResult);
         Assert.assertArrayEquals(expectedResult, result);
     }
 }

@@ -24,7 +24,7 @@ public class Item {
 
         this.name = name;
         this.decs = decs;
-        this.time = System.currentTimeMillis();;
+        this.time = System.currentTimeMillis();
     }
 
 

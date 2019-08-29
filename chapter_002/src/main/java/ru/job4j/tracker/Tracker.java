@@ -36,8 +36,8 @@ public class Tracker {
     public boolean replace(String id, Item item) {
         int i = 0;
         boolean r = false;
-        for (Item E : items) {
-            if (E != null && E.getId().equals(id)) {
+        for (Item e : items) {
+            if (e != null && e.getId().equals(id)) {
                 this.items[i] = item;
                 item.setId(id);
                 r = true;

@@ -89,14 +89,14 @@ public class StartUI {
         System.out.println("------------ Редактирование заявки --------------");
         String id = this.input.ask("Введите ID заявки :");
         String name = this.input.ask("Введите описание заявки :");
-        this.tracker.replace( id, this.tracker.findById( id ) );
+        this.tracker.replace(id, this.tracker.findById(id));
         System.out.println("------------ Заявка заменена ----------------");
     }
 
     private void delete() {
         System.out.println("------------ Удаление заявки по ID --------------");
         String item = this.input.ask("Введите ID заявки :");
-        this.tracker.delete( item );
+        this.tracker.delete(item);
         System.out.println("------------ Заявка удалена ----------------");
     }
 
@@ -115,19 +115,7 @@ public class StartUI {
 
     private void showMenu() {
 
-        String s = String.join("\n"
-
-                , "Menu"
-                , " "
-                , "0. Add new Item"
-                , "1. Show all items"
-                , "2. Edit item"
-                , "3. Delete item"
-                , "4. Find item by Id"
-                , "5. Find items by name"
-                , "6. Exit Program"
-                , ""
-        );
+        String s = String.join("\n", "Menu", "", "0. Add new Item", "1. Show all items", "2. Edit item", "3. Delete item", "4. Find item by Id", "5. Find items by name", "6. Exit Program", "");
 
         System.out.println(s);
 

@@ -15,7 +15,7 @@ public class ArrayDuplicate {
         String buf;
         for (int i = 0; i < array.length - 1 - flag; i++) {
             for (int j = i; j < array.length - 1 - flag; j++) {
-                if (array[i].equals( array[j + 1] )) {
+                if (array[i].equals(array[j + 1])) {
                     buf = array[j + 1];
                     array[j + 1] = array[array.length - 1 - flag];
                     array[array.length - 1 - flag] = buf;
