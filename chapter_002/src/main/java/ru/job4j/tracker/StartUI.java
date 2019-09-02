@@ -99,8 +99,11 @@ public class StartUI {
     private void delete() {
         System.out.println("------------ Удаление заявки по ID --------------");
         String id = this.input.ask("Введите ID заявки :");
-        this.tracker.delete(id);
-        System.out.println("------------ Заявка удалена ----------------");
+        if (this.tracker.delete(id)) {
+            System.out.println("------------ Заявка удалена ----------------");
+        } else {
+            System.out.println("------------ Заявка не найдена ----------------");
+        }
     }
 
     private void findbyid() {
