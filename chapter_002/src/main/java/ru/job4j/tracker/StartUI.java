@@ -91,7 +91,7 @@ public class StartUI {
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
-        if (this.tracker.replace(id, item) == true) {
+        if (this.tracker.replace(id, item)) {
             System.out.println("------------ Заявка заменена ----------------");
         }
     }
@@ -115,8 +115,8 @@ public class StartUI {
     private void findbyname() {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
-        Item[] sarray_name = this.tracker.findByName(name);
-        for (Item item : sarray_name) {
+        Item[] sarrayname = this.tracker.findByName(name);
+        for (Item item : sarrayname) {
             System.out.println("------------ Заявка: " + item.getId() + " -----------");
         }
     }
