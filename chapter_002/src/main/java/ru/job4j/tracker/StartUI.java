@@ -116,8 +116,8 @@ public class StartUI {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
         Item[] sarrayname = this.tracker.findByName(name);
-        for (Item item : sarrayname) {
-            System.out.println("------------ Заявка: " + item.getId() + " -----------");
+        for (int i = 0; i < sarrayname.length; i++) {
+            System.out.println("------------ Заявка: " + sarrayname[i].getId() + " -----------");
         }
     }
 
