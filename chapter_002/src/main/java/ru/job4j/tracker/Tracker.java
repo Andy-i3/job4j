@@ -83,8 +83,7 @@ public class Tracker {
         int pos = 0;
         for (int i = 0; i < this.position; i++) {
             if (items[i] != null && items[i].getName().equals(key)) {
-                result[i] = items[i];
-                pos++;
+                result[pos++] = items[i];
             }
         }
         return Arrays.copyOf(result, pos);
