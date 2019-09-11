@@ -2,12 +2,12 @@ package ru.job4j.pseudo;
 
 public class Square implements Shape {
     @Override
-    public Shape draw() {
+    public String draw() {
         StringBuilder pic = new StringBuilder();
-        pic.append("++++");
-        pic.append("+     +");
-        pic.append("+     +");
-        pic.append("++++");
+        pic.append("++++\n");
+        pic.append("+  +\n");
+        pic.append("+  +\n");
+        pic.append("++++\n");
         return pic.toString();
     }
 }

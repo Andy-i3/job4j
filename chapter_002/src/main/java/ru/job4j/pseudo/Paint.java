@@ -10,7 +10,8 @@ public class Paint {
 
     Paint paint = new Paint();
 
-    paint.draw( new Square().draw() );
+        paint.draw(new Triangle());
+        paint.draw(new Square());
 
 
     }
