@@ -10,18 +10,18 @@ import static org.junit.Assert.assertThat;
  * @version $Id$
  * @since 0.1
  */
-public class SquareTest {
+public class TriangleTest {
     @Test
-    public void whenDrawSquare() {
-        Square square = new Square();
+    public void whenDrawTriangle() {
+        Triangle tringle = new Triangle();
         assertThat(
-                square.draw(),
+                tringle.draw(),
                 is(
                         new StringBuilder()
-                                .append("++++\n")
-                                .append("+  +\n")
-                                .append("+  +\n")
-                                .append("++++\n")
+                                .append("   +\n")
+                                .append("  +++\n")
+                                .append(" +++++\n")
+                                .append("+++++++\n")
                                 .toString()
                 )
         );
