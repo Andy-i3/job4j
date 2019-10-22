@@ -11,7 +11,5 @@ public class College {
         Object o = fr;
 
 
-
-
     }
 }

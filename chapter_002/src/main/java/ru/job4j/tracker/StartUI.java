@@ -24,12 +24,14 @@ public class StartUI {
     /**
      * Получение данных от пользователя.
      */
-    private final Input input;
+
+
+    private static Input input;
 
     /**
      * Хранилище заявок.
      */
-    private final Tracker tracker;
+    private static Tracker tracker = null;
 
     /**
      * Конструтор инициализирующий поля.
@@ -38,8 +40,8 @@ public class StartUI {
      * @param tracker хранилище заявок.
      */
     public StartUI(Input input, Tracker tracker) {
-        this.input = input;
-        this.tracker = tracker;
+        StartUI.input = input;
+        StartUI.tracker = tracker;
     }
 
     /**
@@ -49,19 +51,19 @@ public class StartUI {
         boolean exit = false;
         while (!exit) {
             this.showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
+            String answer = input.ask("Введите пункт меню : ");
             if (ADD.equals(answer)) {
-                this.createItem();
+                StartUI.createItem(input, tracker);
             } else if (SHOW.equals(answer)) {
-                this.show();
+                StartUI.show(input, tracker);
             } else if (EDIT.equals(answer)) {
-                this.edit();
+                StartUI.edit(input, tracker);
             } else if (DELETE.equals(answer)) {
-                this.delete();
+                StartUI.delete(input, tracker);
             } else if (FINDBYID.equals(answer)) {
-                this.findbyid();
+                StartUI.findbyid(input, tracker);
             } else if (FINDBYNAME.equals(answer)) {
-                this.findbyname();
+                StartUI.findbyname(input, tracker);
             } else if (EXIT.equals(answer)) {
                 exit = true;
             }
@@ -71,51 +73,51 @@ public class StartUI {
     /**
      * Метод реализует добавленяи новый заявки в хранилище.
      */
-    private void createItem() {
+    private static void createItem(Input input, Tracker tracker) {
         System.out.println("------------ Добавление новой заявки --------------");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
+        String name = input.ask("Введите имя заявки :");
+        String desc = input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
-        this.tracker.add(item);
+        tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
         System.out.println("------------ Новая заявка с getName : " + item.getName() + "-----------");
     }
 
-    private void show() {
-        System.out.println(Arrays.toString(this.tracker.findAll()));
+    private static void show(Input input, Tracker tracker) {
+        System.out.println(Arrays.toString(tracker.findAll()));
     }
 
-    private void edit() {
+    private static void edit(Input input, Tracker tracker) {
         System.out.println("------------ Редактирование заявки --------------");
-        String id = this.input.ask("Введите ID заявки :");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
+        String id = input.ask("Введите ID заявки :");
+        String name = input.ask("Введите имя заявки :");
+        String desc = input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
-        if (this.tracker.replace(id, item)) {
+        if (tracker.replace(id, item)) {
             System.out.println("------------ Заявка заменена ----------------");
         }
     }
 
-    private void delete() {
+    private static void delete(Input input, Tracker tracker) {
         System.out.println("------------ Удаление заявки по ID --------------");
-        String id = this.input.ask("Введите ID заявки :");
-        if (this.tracker.delete(id)) {
+        String id = input.ask("Введите ID заявки :");
+        if (tracker.delete(id)) {
             System.out.println("------------ Заявка удалена ----------------");
         } else {
             System.out.println("------------ Заявка не найдена ----------------");
         }
     }
 
-    private void findbyid() {
+    private static void findbyid(Input input, Tracker tracker) {
         System.out.println("------------ Поиск заявки по ID --------------");
-        String item = this.input.ask("Введите ID заявки :");
-        System.out.println("------------ Заявка: " + this.tracker.findById(item) + " -----------");
+        String item = input.ask("Введите ID заявки :");
+        System.out.println("------------ Заявка: " + tracker.findById(item) + " -----------");
     }
 
-    private void findbyname() {
+    private static void findbyname(Input input, Tracker tracker) {
         System.out.println("------------ Поиск заявки по имени --------------");
-        String name = this.input.ask("Введите имя заявки :");
-        Item[] sarrayname = this.tracker.findByName(name);
+        String name = input.ask("Введите имя заявки :");
+        Item[] sarrayname = tracker.findByName(name);
         for (int i = 0; i < sarrayname.length; i++) {
             System.out.println("------------ Заявка: " + sarrayname[i].getId() + " -----------");
         }
@@ -130,8 +132,8 @@ public class StartUI {
     /**
      * Запускт программы.
      *
-     * @param args
      */
+
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
     }
