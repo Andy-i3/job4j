@@ -9,64 +9,82 @@ import java.util.Arrays;
 public class StartUI {
 
 
-    private static Input input;
+    private static Input input = null;
     private static Tracker tracker = null;
     private static UserAction[] actions = null;
 
     //  Конструктор заявок
     // Input input, Tracker tracker, UserAction[] actions
     public StartUI() {
-       StartUI.input = input;
-       StartUI.tracker = tracker;
-       StartUI.actions = actions;
-    }
-
-    private static void show(Input input, Tracker tracker) {
-        System.out.println( Arrays.toString( tracker.findAll() ) );
+        StartUI.input = input;
+        StartUI.tracker = tracker;
+        StartUI.actions = actions;
     }
 
     /**
      * Основой цикл программы.
      */
-
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateActionItem(),
                 new CreateActionEdit(),
-                new CreateActionDelete()};
+                new CreateActionDelete(),
+                new CreateActionFindByID(),
+                new CreateActionShow(),
+                new CreateActionFindByName(),
+                new CreateActionExit()
+        };
 
-        new StartUI().init(input, tracker, actions);
+        new StartUI().init( input, tracker, actions );
     }
 
     private void showMenu(UserAction[] actions) {
-        System.out.println("Menu.");
+        System.out.println( "Menu." );
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            System.out.println( index + ". " + actions[index].name() );
         }
     }
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            this.showMenu(actions);
-            int select =   Integer.getInteger(input.ask("Select: "));
-            UserAction action = actions[select];
-            run = action.execute(input, tracker);
+            this.showMenu( actions );
+            int select = Integer.parseInt( input.ask( "Select: " ) );
+            if (select < actions.length) {
+                UserAction action = actions[select];
+                run = action.execute( input, tracker );
+            }
+
         }
     }
-
 
     /**
      * Метод реализует добавленяи новый заявки в хранилище.
      */
+
+
+    public static class CreateActionExit implements UserAction {
+        @Override
+        public String name() {
+            return "Exit";
+        }
+
+        @Override
+        public boolean execute(Input input, Tracker tracker) {
+
+            return false;
+        }
+    }
+
 
     public static class CreateActionItem implements UserAction {
         @Override
         public String name() {
             return "Add new Item";
         }
+
         @Override
         public boolean execute(Input input, Tracker tracker) {
             String name = input.ask( "Введите имя заявки :" );
@@ -79,13 +97,12 @@ public class StartUI {
         }
     }
 
-
-
     public static class CreateActionEdit implements UserAction {
         @Override
         public String name() {
             return "Edit item";
         }
+
         @Override
         public boolean execute(Input input, Tracker tracker) {
             String id = input.ask( "Введите ID заявки :" );
@@ -98,11 +115,14 @@ public class StartUI {
             return true;
         }
     }
+
     public static class CreateActionDelete implements UserAction {
         @Override
         public String name() {
-            return( "Delete item" );
+            return ("Delete item");
         }
+
+        @Override
         public boolean execute(Input input, Tracker tracker) {
             String id = input.ask( "Введите ID заявки :" );
             if (tracker.delete( id )) {
@@ -114,31 +134,49 @@ public class StartUI {
         }
     }
 
-        private static void findbyid(Input input, Tracker tracker) {
+    public static class CreateActionFindByID implements UserAction {
+        @Override
+        public String name() {
+            return "Find item by Id";
+        }
+
+        @Override
+        public boolean execute(Input input, Tracker tracker) {
             System.out.println( "------------ Поиск заявки по ID --------------" );
             String item = input.ask( "Введите ID заявки :" );
             System.out.println( "------------ Заявка: " + tracker.findById( item ) + " -----------" );
+            return true;
+        }
+    }
+
+    public static class CreateActionShow implements UserAction {
+        @Override
+        public String name() {
+            return "Show all items";
         }
 
-        private static void findbyname(Input input, Tracker tracker) {
-            System.out.println( "------------ Поиск заявки по имени --------------" );
+        @Override
+        public boolean execute(Input input, Tracker tracker) {
+            System.out.println( Arrays.toString( tracker.findAll() ) );
+            return true;
+        }
+    }
+
+
+    public static class CreateActionFindByName implements UserAction {
+        @Override
+        public String name() {
+            return "Find items by name";
+        }
+
+        @Override
+        public boolean execute(Input input, Tracker tracker) {
             String name = input.ask( "Введите имя заявки :" );
             Item[] sarrayname = tracker.findByName( name );
             for (int i = 0; i < sarrayname.length; i++) {
                 System.out.println( "------------ Заявка: " + sarrayname[i].getId() + " -----------" );
             }
+            return true;
         }
-
-
-
-    /**
-         * Запускт программы.
-         */
-
-
-
-//        private void showMenu() {
-//            String s = String.join( "\n", "Menu", "", "0. Add new Item", "1. Show all items", "2. Edit item", "3. Delete item", "4. Find item by Id", "5. Find items by name", "6. Exit Program", "" );
-//            System.out.println( s );
-//        }
     }
+}
