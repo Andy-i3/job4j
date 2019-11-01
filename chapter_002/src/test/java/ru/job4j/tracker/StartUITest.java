@@ -45,8 +45,4 @@ public class StartUITest {
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.delete(tracker.findAll()[0].getId()), is(true));
     }
-
-
-
-
 }
