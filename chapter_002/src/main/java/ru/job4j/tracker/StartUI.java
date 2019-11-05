@@ -10,13 +10,18 @@ public class StartUI {
 
     // Инициализация переменных
 
-    private Input input = null;
-    private Tracker tracker = null;
-    private UserAction[] actions = null;
+    protected Input input = null;
+    protected Tracker tracker = null;
+    protected UserAction[] actions = null;
 
-    /**
-     * Основой цикл программы.
-     */
+//    public StartUI(Input input, Tracker tracker, UserAction[] actions) {
+//
+//
+//
+//    }
+
+    // Запуск программы
+
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
@@ -28,9 +33,12 @@ public class StartUI {
                 new CreateActionShow(),
                 new CreateActionFindByName(),
                 new CreateActionExit()
+
         };
         new StartUI().init( input, tracker, actions );
     }
+
+    // Вывести на консоль список пунктов меню
 
     private void showMenu(UserAction[] actions) {
         System.out.println( "Menu." );
@@ -38,6 +46,9 @@ public class StartUI {
             System.out.println( index + ". " + actions[index].name() );
         }
     }
+
+
+     // Основой цикл программы.
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
