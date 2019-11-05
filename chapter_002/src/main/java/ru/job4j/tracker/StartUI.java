@@ -8,20 +8,11 @@ import java.util.Arrays;
  */
 public class StartUI {
 
+    private Input input = null;
+    private Tracker tracker = null;
+    private UserAction[] actions = null;
 
-    private static Input input = null;
-    private static Tracker tracker = null;
-    private static UserAction[] actions = null;
-
-    //  Конструктор заявок
-    // Input input, Tracker tracker, UserAction[] actions
-    public StartUI() {
-        StartUI.input = input;
-        StartUI.tracker = tracker;
-        StartUI.actions = actions;
-    }
-
-    /**
+     /**
      * Основой цикл программы.
      */
     public static void main(String[] args) {
@@ -34,9 +25,8 @@ public class StartUI {
                 new CreateActionFindByID(),
                 new CreateActionShow(),
                 new CreateActionFindByName(),
-                new CreateActionExit()
+                  new CreateActionExit()
         };
-
         new StartUI().init( input, tracker, actions );
     }
 
@@ -56,7 +46,6 @@ public class StartUI {
                 UserAction action = actions[select];
                 run = action.execute( input, tracker );
             }
-
         }
     }
 
