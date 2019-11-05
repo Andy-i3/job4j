@@ -10,9 +10,9 @@ public class StartUI {
 
     // Инициализация переменных
 
-    protected Input input = null;
-    protected Tracker tracker = null;
-    protected UserAction[] actions = null;
+    private Input input = null;
+    private Tracker tracker = null;
+    private UserAction[] actions = null;
 
 //    public StartUI(Input input, Tracker tracker, UserAction[] actions) {
 //
