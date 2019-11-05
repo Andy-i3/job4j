@@ -8,11 +8,13 @@ import java.util.Arrays;
  */
 public class StartUI {
 
+    // Инициализация переменных
+
     private Input input = null;
     private Tracker tracker = null;
     private UserAction[] actions = null;
 
-     /**
+    /**
      * Основой цикл программы.
      */
     public static void main(String[] args) {
@@ -25,7 +27,7 @@ public class StartUI {
                 new CreateActionFindByID(),
                 new CreateActionShow(),
                 new CreateActionFindByName(),
-                  new CreateActionExit()
+                new CreateActionExit()
         };
         new StartUI().init( input, tracker, actions );
     }
@@ -50,9 +52,8 @@ public class StartUI {
     }
 
     /**
-     * Метод реализует добавленяи новый заявки в хранилище.
+     * Метод реализует выход из программы.
      */
-
 
     public static class CreateActionExit implements UserAction {
         @Override
@@ -67,6 +68,9 @@ public class StartUI {
         }
     }
 
+    /**
+     * Метод реализует добавленяи новый заявки в хранилище.
+     */
 
     public static class CreateActionItem implements UserAction {
         @Override
@@ -85,6 +89,10 @@ public class StartUI {
             return true;
         }
     }
+
+    /**
+     * Метод реализует редактирование заявки.
+     */
 
     public static class CreateActionEdit implements UserAction {
         @Override
@@ -105,6 +113,10 @@ public class StartUI {
         }
     }
 
+    /**
+     * Метод реализует удаление заявки.
+     */
+
     public static class CreateActionDelete implements UserAction {
         @Override
         public String name() {
@@ -123,6 +135,10 @@ public class StartUI {
         }
     }
 
+    /**
+     * Метод реализует поиск заявки по ID.
+     */
+
     public static class CreateActionFindByID implements UserAction {
         @Override
         public String name() {
@@ -138,6 +154,11 @@ public class StartUI {
         }
     }
 
+    /**
+     * Метод показывает все заявки
+     */
+
+
     public static class CreateActionShow implements UserAction {
         @Override
         public String name() {
@@ -150,6 +171,11 @@ public class StartUI {
             return true;
         }
     }
+
+
+    /**
+     * Метод реализует поиск по имени заявки
+     */
 
 
     public static class CreateActionFindByName implements UserAction {
