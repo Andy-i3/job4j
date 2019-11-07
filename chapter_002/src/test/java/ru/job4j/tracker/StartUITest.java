@@ -2,12 +2,16 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.StringJoiner;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 public class StartUITest {
 
-
+     // Меню
     private final UserAction[] action = {
             new StartUI.CreateActionItem(),
             new StartUI.CreateActionEdit(),
@@ -19,6 +23,7 @@ public class StartUITest {
     };
 
 
+    // Проверка создания заявки
 
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
@@ -27,6 +32,8 @@ public class StartUITest {
         new StartUI().init(input, tracker, action);     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
+
+    // Проверка редактирования заявки
 
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
@@ -42,6 +49,8 @@ public class StartUITest {
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
 
+    // Проверка удаления заявки
+
     @Test
     public void whenUserDeleteItem() {
         Tracker tracker = new Tracker();     // создаём Tracker
@@ -49,6 +58,9 @@ public class StartUITest {
         new StartUI().init(input, tracker, action);    //   создаём StartUI и вызываем метод init()
         assertThat(tracker.delete(tracker.findAll()[0].getId()), is(true));
     }
+
+
+    // Проверка выхода
 
     @Test
     public void whenExit() {
@@ -60,4 +72,22 @@ public class StartUITest {
         assertThat(action.isCall(), is(true));
     }
 
+
+    @Test
+    public void whenPrtMenu() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream def = System.out;
+        System.setOut(new PrintStream(out));
+        StubInput input = new StubInput(
+                new String[] {"0"}
+        );
+        StubAction action = new StubAction();
+        new StartUI().init(input, new Tracker(), new UserAction[] { action });
+        String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                .add("Menu.")
+                .add("0. Stub action")
+                .toString();
+        assertThat(new String(out.toByteArray()), is(expect));
+        System.setOut(def);
+    }
 }
