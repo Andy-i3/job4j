@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class StartUITest {
 
 
-    UserAction[] action = {
+    private final UserAction[] action = {
             new StartUI.CreateActionItem(),
             new StartUI.CreateActionEdit(),
             new StartUI.CreateActionDelete(),
