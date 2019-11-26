@@ -27,6 +27,13 @@ public class Item {
         this.time = System.currentTimeMillis();
     }
 
+    public Item(String name) {
+
+        this.name = name;
+        this.decs = "TEST";
+        this.time = System.currentTimeMillis();
+    }
+
 
     public String getId() {
         return id;
