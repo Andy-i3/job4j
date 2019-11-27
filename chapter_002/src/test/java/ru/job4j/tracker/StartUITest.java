@@ -98,13 +98,12 @@ public class StartUITest {
             Tracker tracker = new Tracker();
             Item item = new Item( "fix bug" );
             tracker.add( item );
-            new StartUI.CreateActionShow().execute( new StubInput( new String[]{} ), tracker );
+            StartUI.CreateActionShow act = new StartUI.CreateActionShow();
+            act.execute(new StubInput(new String[] {"fix bug"}), tracker);
             String expect = new StringJoiner( System.lineSeparator(), "", System.lineSeparator() )
                     .add( item.getId() + " " + item.getName() )
                     .toString();
-            System.out.println(expect);
             assertThat( new String(out.toByteArray()), is(expect) );
             System.setOut( def );
         }
-
 }
