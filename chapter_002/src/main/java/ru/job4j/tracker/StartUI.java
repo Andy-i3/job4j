@@ -34,6 +34,7 @@ public class StartUI {
                 new CreateActionFindByName(),
                 new CreateActionExit()
 
+
         };
         new StartUI().init( input, tracker, actions );
     }
@@ -170,18 +171,39 @@ public class StartUI {
      */
 
 
+//    public static class CreateActionShow implements UserAction {
+//        @Override
+//        public String name() {
+//            return "Show all items";
+//        }
+//
+//        @Override
+//        public boolean execute(Input input, Tracker tracker) {
+//            System.out.println( Arrays.toString( tracker.findAll() ) );
+//            return true;
+//        }
+//    }
+
+
+
     public static class CreateActionShow implements UserAction {
         @Override
         public String name() {
-            return "Show all items";
+            return "Find all.";
         }
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            System.out.println( Arrays.toString( tracker.findAll() ) );
+            for (Item item : tracker.findAll()) {
+                System.out.println(String.format("%s %s", item.getId(), item.getName()));
+            }
             return true;
         }
     }
+
+
+
+
 
 
     /**

@@ -71,6 +71,8 @@ public class StartUITest {
         assertThat(action.isCall(), is(true));
     }
 
+    // Проверка вывода меню
+
     @Test
     public void whenPrtMenu() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -90,6 +92,8 @@ public class StartUITest {
         System.setOut(def);
     }
 
+    // Проверка вывода всех заявок
+
         @Test
         public void whenCheckOutput() {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -99,7 +103,7 @@ public class StartUITest {
             Item item = new Item( "fix bug" );
             tracker.add( item );
             StartUI.CreateActionShow act = new StartUI.CreateActionShow();
-            act.execute(new StubInput(new String[] {"fix bug"}), tracker);
+            act.execute(new StubInput(new String[] {}), tracker);
             String expect = new StringJoiner( System.lineSeparator(), "", System.lineSeparator() )
                     .add( item.getId() + " " + item.getName() )
                     .toString();
