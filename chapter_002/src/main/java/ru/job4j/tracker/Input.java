@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public interface Input {
 
-    public String ask(String msg);
+    String askStr(String question);
+    int askInt(String question);
+    int askInt(String question, int max);
 
 }
 

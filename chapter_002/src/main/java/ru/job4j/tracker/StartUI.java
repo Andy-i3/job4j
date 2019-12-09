@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
-
 /**
  * @version $Id$
  * @since 0.1
@@ -22,8 +20,11 @@ public class StartUI {
 
     // Запуск программы
 
+
+
+
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input validate = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateActionItem(),
@@ -33,10 +34,9 @@ public class StartUI {
                 new CreateActionShow(),
                 new CreateActionFindByName(),
                 new CreateActionExit()
-
-
         };
-        new StartUI().init( input, tracker, actions );
+      //  new StartUI().init( input, tracker, actions );
+        new StartUI().init(validate, tracker, actions);
     }
 
     // Вывести на консоль список пунктов меню
@@ -51,16 +51,30 @@ public class StartUI {
 
      // Основой цикл программы.
 
+
+
+
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            this.showMenu( actions );
-            int select = Integer.parseInt( input.ask( "Select: " ) );
-            if (select < actions.length) {
-                UserAction action = actions[select];
-                run = action.execute( input, tracker );
-            }
+            this.showMenu(actions);
+            int select = input.askInt("Select: ", actions.length);
+            UserAction action = actions[select];
+            run = action.execute(input, tracker);
         }
+    }
+
+
+//    public void init(Input input, Tracker tracker, UserAction[] actions) {
+//        boolean run = true;
+//        while (run) {
+//            this.showMenu( actions );
+//            int select = Integer.parseInt( input.askStr( "Select: " ) );
+//            if (select < actions.length) {
+//                UserAction action = actions[select];
+//                run = action.execute( input, tracker );
+//            }
+//        }
     }
 
     /**
@@ -92,8 +106,8 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            String name = input.ask( "Введите имя заявки :" );
-            String desc = input.ask( "Введите описание заявки :" );
+            String name = input.askStr( "Введите имя заявки :" );
+            String desc = input.askStr( "Введите описание заявки :" );
             Item item = new Item( name, desc );
             tracker.add( item );
             System.out.println( "------------ Новая заявка с getId : " + item.getId() + "-----------" );
@@ -114,9 +128,9 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            String id = input.ask( "Введите ID заявки :" );
-            String name = input.ask( "Введите имя заявки :" );
-            String desc = input.ask( "Введите описание заявки :" );
+            String id = input.askStr( "Введите ID заявки :" );
+            String name = input.askStr( "Введите имя заявки :" );
+            String desc = input.askStr( "Введите описание заявки :" );
             Item item = new Item( name, desc );
             if (tracker.replace( id, item )) {
                 System.out.println( "------------ Заявка заменена ----------------" );
@@ -137,7 +151,7 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            String id = input.ask( "Введите ID заявки :" );
+            String id = input.askStr( "Введите ID заявки :" );
             if (tracker.delete( id )) {
                 System.out.println( "------------ Заявка удалена ----------------" );
             } else {
@@ -160,7 +174,7 @@ public class StartUI {
         @Override
         public boolean execute(Input input, Tracker tracker) {
             System.out.println( "------------ Поиск заявки по ID --------------" );
-            String item = input.ask( "Введите ID заявки :" );
+            String item = input.askStr( "Введите ID заявки :" );
             System.out.println( "------------ Заявка: " + tracker.findById( item ) + " -----------" );
             return true;
         }
@@ -202,10 +216,6 @@ public class StartUI {
     }
 
 
-
-
-
-
     /**
      * Метод реализует поиск по имени заявки
      */
@@ -219,7 +229,7 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            String name = input.ask( "Введите имя заявки :" );
+            String name = input.askStr( "Введите имя заявки :" );
             Item[] sarrayname = tracker.findByName( name );
             for (int i = 0; i < sarrayname.length; i++) {
                 System.out.println( "------------ Заявка: " + sarrayname[i].getId() + " -----------" );

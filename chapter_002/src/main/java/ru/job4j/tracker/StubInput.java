@@ -13,7 +13,7 @@ public class StubInput implements Input {
     private final String[] value;
 
     /**
-     * Поле считает количество вызовом метода ask.
+     * Поле считает количество вызовом метода askStr.
      * При каждом вызове надо передвинуть указатель на новое число.
      */
     private int position;
@@ -25,13 +25,23 @@ public class StubInput implements Input {
     /**
      * Давайте рассмотрим, как работает этот метод.
      * у нас есть объект в котором содержатся заранее продуманные ответы.
-     * При последовательном вызове метода ask нам надо возвращать соответствующие данные.
+     * При последовательном вызове метода askStr нам надо возвращать соответствующие данные.
      * Как если бы мы симулировали поведение пользователя.
-     * Для этого при каждом вызове метода ask мы увеличиваем счетчик и
+     * Для этого при каждом вызове метода askStr мы увеличиваем счетчик и
      * при следующем вызове он вернет нам новое значение.
      */
     @Override
-    public String ask(String question) {
+    public String askStr(String question) {
         return this.value[this.position++];
+    }
+
+    @Override
+    public int askInt(String question) {
+        return Integer.valueOf(askStr(question));
+    }
+
+    @Override
+    public int askInt(String question, int max) {
+        return askInt(question);
     }
 }
