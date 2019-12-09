@@ -13,15 +13,15 @@ public class MagicBall {
         switch (new Random().nextInt(3)) {
             case 1:
                 System.out.println("Да");
-                ;
+
                 break;
             case 2:
                 System.out.println("Нет");
-                ;
+
                 break;
             default:
                 System.out.println("Может быть");
-                ;
+
                 break;
         }
     }

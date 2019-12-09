@@ -32,21 +32,21 @@ public class StartUI {
                 new CreateActionFindByName(),
                 new CreateActionExit()
         };
-      //  new StartUI().init( input, tracker, actions );
+        //  new StartUI().init( input, tracker, actions );
         new StartUI().init(validate, tracker, actions);
     }
 
     // Вывести на консоль список пунктов меню
 
     private void showMenu(UserAction[] actions) {
-        System.out.println( "Menu." );
+        System.out.println("Menu.");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println( index + ". " + actions[index].name() );
+            System.out.println(index + ". " + actions[index].name());
         }
     }
 
 
-     // Основой цикл программы.
+    // Основой цикл программы.
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
@@ -88,12 +88,12 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            String name = input.askStr( "Введите имя заявки :" );
-            String desc = input.askStr( "Введите описание заявки :" );
-            Item item = new Item( name, desc );
-            tracker.add( item );
-            System.out.println( "------------ Новая заявка с getId : " + item.getId() + "-----------" );
-            System.out.println( "------------ Новая заявка с getName : " + item.getName() + "-----------" );
+            String name = input.askStr("Введите имя заявки :");
+            String desc = input.askStr("Введите описание заявки :");
+            Item item = new Item(name, desc);
+            tracker.add(item);
+            System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+            System.out.println("------------ Новая заявка с getName : " + item.getName() + "-----------");
             return true;
         }
     }
@@ -110,12 +110,12 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            String id = input.askStr( "Введите ID заявки :" );
-            String name = input.askStr( "Введите имя заявки :" );
-            String desc = input.askStr( "Введите описание заявки :" );
-            Item item = new Item( name, desc );
-            if (tracker.replace( id, item )) {
-                System.out.println( "------------ Заявка заменена ----------------" );
+            String id = input.askStr("Введите ID заявки :");
+            String name = input.askStr("Введите имя заявки :");
+            String desc = input.askStr("Введите описание заявки :");
+            Item item = new Item(name, desc);
+            if (tracker.replace(id, item)) {
+                System.out.println("------------ Заявка заменена ----------------");
             }
             return true;
         }
@@ -133,11 +133,11 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            String id = input.askStr( "Введите ID заявки :" );
-            if (tracker.delete( id )) {
-                System.out.println( "------------ Заявка удалена ----------------" );
+            String id = input.askStr("Введите ID заявки :");
+            if (tracker.delete(id)) {
+                System.out.println("------------ Заявка удалена ----------------");
             } else {
-                System.out.println( "------------ Заявка не найдена ----------------" );
+                System.out.println("------------ Заявка не найдена ----------------");
             }
             return true;
         }
@@ -155,9 +155,9 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            System.out.println( "------------ Поиск заявки по ID --------------" );
-            String item = input.askStr( "Введите ID заявки :" );
-            System.out.println( "------------ Заявка: " + tracker.findById( item ) + " -----------" );
+            System.out.println("------------ Поиск заявки по ID --------------");
+            String item = input.askStr("Введите ID заявки :");
+            System.out.println("------------ Заявка: " + tracker.findById(item) + " -----------");
             return true;
         }
     }
@@ -167,18 +167,6 @@ public class StartUI {
      */
 
 
-//    public static class CreateActionShow implements UserAction {
-//        @Override
-//        public String name() {
-//            return "Show all items";
-//        }
-//
-//        @Override
-//        public boolean execute(Input input, Tracker tracker) {
-//            System.out.println( Arrays.toString( tracker.findAll() ) );
-//            return true;
-//        }
-//    }
 
 
 
@@ -198,10 +186,6 @@ public class StartUI {
     }
 
 
-
-
-
-
     /**
      * Метод реализует поиск по имени заявки
      */
@@ -215,10 +199,10 @@ public class StartUI {
 
         @Override
         public boolean execute(Input input, Tracker tracker) {
-            String name = input.askStr( "Введите имя заявки :" );
-            Item[] sarrayname = tracker.findByName( name );
+            String name = input.askStr("Введите имя заявки :");
+            Item[] sarrayname = tracker.findByName(name);
             for (int i = 0; i < sarrayname.length; i++) {
-                System.out.println( "------------ Заявка: " + sarrayname[i].getId() + " -----------" );
+                System.out.println("------------ Заявка: " + sarrayname[i].getId() + " -----------");
             }
             return true;
         }

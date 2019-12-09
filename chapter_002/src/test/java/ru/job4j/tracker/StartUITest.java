@@ -67,7 +67,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] { action });
+        new StartUI().init(input, new Tracker(), new UserAction[] {action});
         assertThat(action.isCall(), is(true));
     }
 
@@ -82,7 +82,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] { action });
+        new StartUI().init(input, new Tracker(), new UserAction[] {action});
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0. Stub action")
@@ -98,16 +98,16 @@ public class StartUITest {
         public void whenCheckOutput() {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             PrintStream def = System.out;
-            System.setOut( new PrintStream( out ) );
+            System.setOut(new PrintStream(out));
             Tracker tracker = new Tracker();
-            Item item = new Item( "fix bug" );
-            tracker.add( item );
+            Item item = new Item("fix bug");
+            tracker.add(item);
             StartUI.CreateActionShow act = new StartUI.CreateActionShow();
             act.execute(new StubInput(new String[] {}), tracker);
-            String expect = new StringJoiner( System.lineSeparator(), "", System.lineSeparator() )
-                    .add( item.getId() + " " + item.getName() )
+            String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                    .add(item.getId() + " " + item.getName())
                     .toString();
-            assertThat( new String(out.toByteArray()), is(expect) );
-            System.setOut( def );
+            assertThat(new String(out.toByteArray()), is(expect));
+            System.setOut(def);
         }
 }

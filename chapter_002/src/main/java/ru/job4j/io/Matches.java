@@ -1,5 +1,7 @@
 package ru.job4j.io;
+
 import java.util.Scanner;
+
 public class Matches {
 
     public static void main(String[] args) {
@@ -22,10 +24,14 @@ public class Matches {
                 item = !item;
             } else {
                 nummatches -= select;
-                if (nummatches < 0) nummatches = 0;
+                if (nummatches < 0) {
+                    nummatches = 0;
+                }
             }
             System.out.println("Осталось " + nummatches + " спичек");
-            if (nummatches <= 0) run = false;
+            if (nummatches <= 0) {
+                run = false;
+            }
         }
         if (!item) {
             System.out.println("Выйграл первый игрок");
@@ -35,4 +41,3 @@ public class Matches {
         }
     }
 }
-

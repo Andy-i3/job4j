@@ -2,9 +2,9 @@ package ru.job4j.test;
 
 import java.util.StringJoiner;
 
-public class test1 {
+class Test {
 
-    public static void main(String[]args){
+    public static void main(String[]args) {
 
         StringJoiner sj = new StringJoiner("/", "prefix-", "-suffix")
                 .add("2016")
