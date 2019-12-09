@@ -20,9 +20,6 @@ public class StartUI {
 
     // Запуск программы
 
-
-
-
     public static void main(String[] args) {
         Input validate = new ValidateInput();
         Tracker tracker = new Tracker();
@@ -64,18 +61,6 @@ public class StartUI {
         }
     }
 
-
-//    public void init(Input input, Tracker tracker, UserAction[] actions) {
-//        boolean run = true;
-//        while (run) {
-//            this.showMenu( actions );
-//            int select = Integer.parseInt( input.askStr( "Select: " ) );
-//            if (select < actions.length) {
-//                UserAction action = actions[select];
-//                run = action.execute( input, tracker );
-//            }
-//        }
-    }
 
     /**
      * Метод реализует выход из программы.
@@ -214,6 +199,10 @@ public class StartUI {
             return true;
         }
     }
+
+
+
+
 
 
     /**
