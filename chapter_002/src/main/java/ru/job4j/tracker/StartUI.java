@@ -48,9 +48,6 @@ public class StartUI {
 
      // Основой цикл программы.
 
-
-
-
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
