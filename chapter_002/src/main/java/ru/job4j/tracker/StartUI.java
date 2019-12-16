@@ -21,7 +21,8 @@ public class StartUI {
     // Запуск программы
 
     public static void main(String[] args) {
-        Input validate = new ValidateInput();
+        Input input = new ConsoleInput();
+        Input validate = new ValidateInput(input);
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateActionItem(),
@@ -166,10 +167,6 @@ public class StartUI {
      * Метод показывает все заявки
      */
 
-
-
-
-
     public static class CreateActionShow implements UserAction {
         @Override
         public String name() {
@@ -185,11 +182,9 @@ public class StartUI {
         }
     }
 
-
     /**
      * Метод реализует поиск по имени заявки
      */
-
 
     public static class CreateActionFindByName implements UserAction {
         @Override
