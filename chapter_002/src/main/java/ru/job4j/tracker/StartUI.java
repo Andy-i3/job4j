@@ -33,8 +33,7 @@ public class StartUI {
                 new CreateActionFindByName(),
                 new CreateActionExit()
         };
-        //  new StartUI().init( input, tracker, actions );
-        new StartUI().init(validate, tracker, actions);
+          new StartUI().init(validate, tracker, actions);
     }
 
     // Вывести на консоль список пунктов меню
