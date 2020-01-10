@@ -12,11 +12,6 @@ public class StartUI {
     private Tracker tracker = null;
     private UserAction[] actions = null;
 
-//    public StartUI(Input input, Tracker tracker, UserAction[] actions) {
-//
-//
-//
-//    }
 
     // Запуск программы
 
@@ -51,7 +46,9 @@ public class StartUI {
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
+            // Вывести на экран меню
             this.showMenu(actions);
+            // Ожидание ввода пунктов меню
             int select = input.askInt("Select: ", actions.length);
             UserAction action = actions[select];
             run = action.execute(input, tracker);
