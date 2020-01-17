@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.is;
 public class ValidateInputTest {
 
     @Test
-    public void whenInvalidInput() {
+    public void whenInvalidInput_one() {
         ByteArrayOutputStream mem = new ByteArrayOutputStream();
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
@@ -26,14 +26,14 @@ public class ValidateInputTest {
 
 
     @Test
-    public void whenInvalidInput1() {
+    public void whenInvalidInput_two() {
         ByteArrayOutputStream mem = new ByteArrayOutputStream();
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"7"})
+                new StubInput(new String[] {"7","4"})
         );
-        input.askInt("12", 2);
+        input.askInt("12", 5);
         assertThat(
                 mem.toString(),
                 is(String.format("Please select key from menu.%n"))
