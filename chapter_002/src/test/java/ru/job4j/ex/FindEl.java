@@ -20,5 +20,4 @@ public class FindEl {
         if (rsl == -1) throw new ElementNotFoundException("Error 123");
         return rsl;
     }
-
 }
