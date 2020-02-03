@@ -6,7 +6,7 @@ public class FindEl {
 
     public static void main(String[] args) {
         String[] a = {"123", "234", "567"};
-        String b = "5674";
+        String b = "567";
         try {
             System.out.println(indexOf( a, b ));
         } catch (ElementNotFoundException e) {
