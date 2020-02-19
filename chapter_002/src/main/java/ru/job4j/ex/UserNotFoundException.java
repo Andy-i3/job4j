@@ -1,7 +1,10 @@
 package ru.job4j.ex;
 
 public class UserNotFoundException extends Throwable {
+    /**
+     * @param message
+     */
     public UserNotFoundException(String message) {
-        super(message);
+        System.out.println( message );
     }
 }
