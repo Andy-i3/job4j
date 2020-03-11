@@ -5,6 +5,6 @@ public class UserNotFoundException extends Throwable {
      * @param message
      */
     public UserNotFoundException(String message) {
-        System.out.println( message );
+        System.out.println(message);
     }
 }

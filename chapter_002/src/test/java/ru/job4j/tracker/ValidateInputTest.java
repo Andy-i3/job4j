@@ -1,20 +1,22 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class ValidateInputTest {
 
     @Test
-    public void whenInvalidInput_one() {
+    public void whenInvalidInputOne() {
         ByteArrayOutputStream mem = new ByteArrayOutputStream();
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"invalid", "1"})
+                new StubInput(new String[]{"invalid", "1"})
         );
         input.askInt("Enter", 2);
         assertThat(
@@ -26,12 +28,12 @@ public class ValidateInputTest {
 
 
     @Test
-    public void whenInvalidInput_two() {
+    public void whenInvalidInputTwo() {
         ByteArrayOutputStream mem = new ByteArrayOutputStream();
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"7","4"})
+                new StubInput(new String[]{"7", "4"})
         );
         input.askInt("12", 5);
         assertThat(
