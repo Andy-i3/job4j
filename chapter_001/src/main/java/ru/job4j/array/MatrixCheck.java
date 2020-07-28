@@ -6,7 +6,6 @@ package ru.job4j.array;
  * @version $Id$
  * @since 0.1
  */
-
 public class MatrixCheck {
     public boolean mono(boolean[][] data) {
         boolean result = true;

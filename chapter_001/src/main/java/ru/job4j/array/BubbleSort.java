@@ -6,9 +6,7 @@ package ru.job4j.array;
  * @version $Id$
  * @since 0.1
  */
-
 public class BubbleSort {
-
     public static int[] sort(int[] array) {
         int buf;
         for (int j = 0; j < array.length - 1; j++) {

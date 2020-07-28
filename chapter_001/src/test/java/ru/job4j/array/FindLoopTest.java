@@ -6,7 +6,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class FindLoopTest {
-
     @Test
     public void whenArrayHasLengh5Then0() {
         FindLoop find = new FindLoop();
@@ -16,7 +15,6 @@ public class FindLoopTest {
         int expect = 0;
         assertThat(result, is(expect));
     }
-
     @Test
     public void whenArrayNoHasThen0() {
         FindLoop find = new FindLoop();

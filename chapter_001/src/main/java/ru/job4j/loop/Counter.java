@@ -1,5 +1,11 @@
 package ru.job4j.loop;
 
+/**
+ * @author Golubkov Andrey
+ * @version $Id$
+ * @since 0.1
+ */
+
 public class Counter {
     public int add(int start, int finish) {
         int count = 0;

@@ -1,5 +1,11 @@
 package ru.job4j.array;
 
+/*
+ * Matrix
+ * @author Golubkov Andrey
+ * @version $Id$
+ * @since 0.1
+ */
 public class Matrix {
     public int[][] multiple(int size) {
         int[][] table = new int[size][size];

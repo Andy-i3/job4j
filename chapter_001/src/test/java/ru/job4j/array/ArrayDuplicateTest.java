@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ArrayDuplicateTest {
-
     @Test
     public void whenRemoveDuplicatesThenArrayWithoutDuplicate() {
         String[] expectedResult = {"Привет", "Мир", "Привет",
