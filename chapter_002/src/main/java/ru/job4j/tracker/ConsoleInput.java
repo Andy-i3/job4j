@@ -3,11 +3,9 @@ package ru.job4j.tracker;
 import java.util.Scanner;
 
 public class ConsoleInput implements Input {
-
     @Override
     public String askStr(String msg) {
-
-        System.out.println(msg);
+       System.out.println(msg);
         Scanner in = new Scanner(System.in);
         return in.next();
     }

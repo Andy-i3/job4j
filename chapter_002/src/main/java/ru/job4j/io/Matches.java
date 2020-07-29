@@ -13,7 +13,6 @@ public class Matches {
             if (item) {
                 System.out.println("Первый игрок:");
                 item = false;
-
             } else {
                 System.out.println("Второй игрок:");
                 item = true;

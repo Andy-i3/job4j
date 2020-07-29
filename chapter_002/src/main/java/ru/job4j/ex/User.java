@@ -21,6 +21,3 @@ public class User {
     }
 }
 
-//  if (getUsername().length()<3) {
-//        this.valid = false;
-//        }
