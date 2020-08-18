@@ -10,6 +10,8 @@ public class Item {
     private String name;
     private String decs;
     private long time;
+
+    /*
     public Item(String name, String decs, long time) {
         this.name = name;
         this.decs = decs;
@@ -26,6 +28,19 @@ public class Item {
         this.name = name;
         this.decs = "TEST";
         this.time = System.currentTimeMillis();
+    }
+
+    */
+
+    public Item() {
+
+    }
+    public Item(String id) {
+
+    }
+
+    public Item(String name, String id) {
+
     }
 
 
