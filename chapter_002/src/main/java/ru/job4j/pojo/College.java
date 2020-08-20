@@ -9,15 +9,16 @@ public class College {
         student.setName("Alex");
         student.setGroup("m5");
         Date date = new Date();
-        date.setYear(2020);
-        date.setMonth(1);
         date.setDate(22);
+        date.setMonth(3 - 1);
+        date.setYear(2020 - 1900);
+        date.setHours(0);
+        date.setMinutes(0);
+        date.setSeconds(0);
         student.setData(date);
-
         System.out.println("Name: " + student.getName());
         System.out.println("Group: " + student.getGroup());
-        Date dateget = student.getData();
-        System.out.println("Data: " + dateget.toString());
+        System.out.println("Data: " + student.getData().toString());
 
     }
 }

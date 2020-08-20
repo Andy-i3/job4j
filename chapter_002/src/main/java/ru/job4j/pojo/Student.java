@@ -27,7 +27,7 @@ public class Student {
         return data;
     }
 
-    public void setData(Date date) {
+    public void setData(Date data) {
         this.data = data;
     }
 }
