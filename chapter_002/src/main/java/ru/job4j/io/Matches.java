@@ -6,10 +6,9 @@ public class Matches {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        boolean run = true;
         int nummatches = 11;
         boolean item = true;
-        while (run) {
+        while (nummatches > 0) {
             if (item) {
                 System.out.println("Первый игрок:");
                 item = false;
@@ -28,10 +27,7 @@ public class Matches {
                 }
             }
             System.out.println("Осталось " + nummatches + " спичек");
-            if (nummatches <= 0) {
-                run = false;
-            }
-        }
+           }
         if (!item) {
             System.out.println("Выйграл первый игрок");
 
