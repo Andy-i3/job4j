@@ -10,6 +10,7 @@ public class StartUI {
         new StartUI().init(scanner, tracker);
     }
 
+    @SuppressWarnings("checkstyle:RightCurly")
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
         while (run) {
@@ -51,9 +52,21 @@ public class StartUI {
                 System.out.println("=== Find item by Id ====");
                 System.out.print("Enter ID: ");
                 int id = Integer.parseInt(scanner.nextLine());
-
-
+                String res = tracker.findById(id).getName();
+                if (res == null) {
+                    System.out.println("Не найден");
+                } else {
+                    System.out.println(res);
+                }
             } else if (select == 5) {
+
+                System.out.println("=== Find item by name ====");
+                System.out.print("Enter Name: ");
+                String name = scanner.nextLine();
+                Item[] arrays = tracker.findByName(name);
+                for (Item item: arrays) {
+                    System.out.println(item.getId() + "  " + item.getName());
+                }
 
             } else if (select == 6) {
                 run = false;
