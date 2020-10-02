@@ -39,13 +39,21 @@ public class StartUI {
                 System.out.println();
                 Item item = new Item();
                 item.setName(name);
-                tracker.replace(id, item);
+                if (tracker.replace(id, item)) {
+                    System.out.println("Заявка заменена");
+                } else {
+                    System.out.println("Заявка не найдена");
+                }
 
             } else if (select == 3) {
                 System.out.println("=== Delele the Item ====");
                 System.out.print("Enter ID: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                tracker.delete(id);
+                if (tracker.delete(id)) {
+                    System.out.println("Заявка удалена");
+                } else  {
+                    System.out.println("Заявка не найдена");
+                }
 
             } else if (select == 4) {
 
