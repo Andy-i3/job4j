@@ -60,11 +60,11 @@ public class StartUI {
                 System.out.println("=== Find item by Id ====");
                 System.out.print("Enter ID: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                String res = tracker.findById(id).getName();
+                Item res = tracker.findById(id);
                 if (res == null) {
                     System.out.println("Заявка с таким id не найдена");
                 } else {
-                    System.out.println(res);
+                    System.out.println(res.getId() + "  " + res.getName());
                 }
             } else if (select == 5) {
 
