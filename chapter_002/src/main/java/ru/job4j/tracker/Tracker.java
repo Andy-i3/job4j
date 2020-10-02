@@ -26,7 +26,7 @@ public class Tracker {
                 arrays[count++] = item;
             }
         }
-        return Arrays.copyOf(arrays, count);
+        return count != 0 ? Arrays.copyOf(arrays, count) : null;
     }
 
     private int indexOf(int id) {

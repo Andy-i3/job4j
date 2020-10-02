@@ -54,7 +54,7 @@ public class StartUI {
                 int id = Integer.parseInt(scanner.nextLine());
                 String res = tracker.findById(id).getName();
                 if (res == null) {
-                    System.out.println("Не найден");
+                    System.out.println("Заявка с таким id не найдена");
                 } else {
                     System.out.println(res);
                 }
@@ -64,9 +64,14 @@ public class StartUI {
                 System.out.print("Enter Name: ");
                 String name = scanner.nextLine();
                 Item[] arrays = tracker.findByName(name);
+                if (arrays != null) {
                 for (Item item: arrays) {
                     System.out.println(item.getId() + "  " + item.getName());
+                     }
+                } else {
+                    System.out.println("Заявка с таким name не найдена");
                 }
+
 
             } else if (select == 6) {
                 run = false;
