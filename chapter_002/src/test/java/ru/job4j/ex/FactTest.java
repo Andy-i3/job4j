@@ -6,9 +6,9 @@ import static org.junit.Assert.*;
 
 public class FactTest {
 
-    @Test (expected = IllegalArgumentException.class)
-    public void calc() {
-        Fact d = new Fact();
-        d.calc(10);
-    }
+//    @Test (expected = IllegalArgumentException.class)
+//    public void calc() {
+//        Fact d = new Fact();
+//        d.calc(10);
+//    }
 }
