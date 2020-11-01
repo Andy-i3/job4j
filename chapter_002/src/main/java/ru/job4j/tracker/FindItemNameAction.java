@@ -8,8 +8,6 @@ public class FindItemNameAction implements UserAction{
         this.out = out;
     }
 
-
-
     @Override
     public String name() {
         return "Find item by name";
@@ -20,12 +18,12 @@ public class FindItemNameAction implements UserAction{
         out.println("=== Find item by name ====");
         String name = input.askStr("Enter Name: ");
         Item[] arrays = tracker.findByName(name);
-        if (arrays.length > 0) {
+        if (arrays != null) {
             for (Item item : arrays) {
-                System.out.println(item.getId() + "  " + item.getName());
+                out.println(item.getId() + "  " + item.getName());
             }
         } else {
-            System.out.println("Заявка с таким name не найдена");
+            out.println("Заявка с таким name не найдена");
         }
         return true;
     }

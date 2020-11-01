@@ -18,12 +18,12 @@ public class ReplaceAction implements UserAction{
         out.println("=== Edit the Item ====");
         int id = Integer.parseInt(input.askStr("Enter ID: "));
         String name = input.askStr("Enter name: ");
-        System.out.println();
+        out.println("");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            System.out.println("Заявка заменена");
+            out.println("Заявка заменена");
         } else {
-            System.out.println("Заявка не найдена");
+            out.println("Заявка не найдена");
         }
         return true;
     }
