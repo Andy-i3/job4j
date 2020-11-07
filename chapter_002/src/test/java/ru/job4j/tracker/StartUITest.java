@@ -74,7 +74,16 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertArrayEquals(tracker.findAll(), items);
+        assertThat(output.toString(), is("Menu.\r\n" +
+                "0. Find all\r\n" +
+                "1. Exit\r\n" +
+                "=== Find all ====\r\n" +
+                "1   New item 1\r\n" +
+                "2   New item 2\r\n" +
+                "Menu.\r\n" +
+                "0. Find all\r\n" +
+                "1. Exit\r\n" +
+                "==== Exit ====\r\n"  ));
     }
 
     @Test
@@ -90,8 +99,17 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertArrayEquals(tracker.findByName("New item 1"), items);
-
+        assertThat(output.toString(), is ("Menu.\r\n" +
+        "0. Find item by name\r\n" +
+        "1. Exit\r\n" +
+                "=== Find item by name ====\r\n" +
+        "1  New item 1\r\n" +
+        "2  New item 1\r\n" +
+        "Menu.\r\n" +
+        "0. Find item by name\r\n" +
+        "1. Exit\r\n" +
+                "==== Exit ====\r\n"
+        ));
     }
 
     @Test
@@ -107,7 +125,18 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is("Find item"));
+
+
+        assertThat(output.toString(), is("Menu.\r\n" +
+        "0. Find item by Id\r\n" +
+        "1. Exit\r\n" +
+                "=== Find item by Id ====\r\n" +
+        "1  Find item\r\n" +
+        "Menu.\r\n" +
+        "0. Find item by Id\r\n" +
+        "1. Exit\r\n" +
+                "==== Exit ====\r\n"));
+
         assertThat(tracker.findById(3), is(nullValue()));
 
     }
