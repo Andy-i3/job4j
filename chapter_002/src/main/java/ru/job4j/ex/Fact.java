@@ -7,7 +7,7 @@ public class Fact {
     }
 
     public int calc(int n) {
-        if (n < 1) {
+        if (n < 0) {
             throw new IllegalArgumentException("Start should be less then finish.");
         }
         int rsl = 1;
