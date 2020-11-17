@@ -18,10 +18,12 @@ public class UserStore {
     public static boolean validate(User user) throws UserInvalidException {
         if (user.getUsername().length() < 3)
         {
-            if (!user.isValid()) {
-                throw new UserInvalidException("This user not valid");
-            }
+            throw new UserInvalidException("This user <3 symbols");
         }
+        else if (!user.isValid())
+            {
+              throw new UserInvalidException("This user not valid");
+            }
         return false;
     }
 
