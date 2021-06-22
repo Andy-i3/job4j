@@ -8,7 +8,7 @@ public class Start {
         Vehicle train = new Train("поезд");
         Vehicle plane = new Plane("самолет");
 
-        Vehicle[] transport = new Vehicle[]{bus,train,plane};
+        Vehicle[] transport = new Vehicle[]{bus, train, plane};
         for (Vehicle a : transport) {
             a.name();
             a.move();

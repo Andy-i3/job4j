@@ -1,6 +1,6 @@
 package ru.job4j.vehicle;
 
-public class Plane implements Vehicle{
+public class Plane implements Vehicle {
     private final String name;
 
     public Plane(String n) {
